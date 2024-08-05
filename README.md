@@ -18,6 +18,8 @@ This project demonstrates an OAuth-based authentication system using NestJS for 
 -   NestJS: A progressive Node.js framework for building efficient and scalable server-side applications.
 -   Passport.js: A popular authentication middleware for Node.js.
 -   JWT: JSON Web Tokens for secure token-based authentication.
+-   Prima: A Node.js and TypeScript ORM.
+-   SQLite: To store the user data
 
 ### Frontend
 
