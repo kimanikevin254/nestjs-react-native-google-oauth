@@ -22,7 +22,7 @@ export class AuthService {
         const payload = { email: user.email, sub: user.userId }
         const access_token = this.jwtService.sign(payload)
 
-        return { url: `exp://192.168.1.6:8081?${access_token}` }
+        return { url: `exp://192.168.1.6:8081?access_token=${access_token}` }
         
     }
 }
