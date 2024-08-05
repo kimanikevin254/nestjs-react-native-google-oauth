@@ -1,4 +1,4 @@
-import { Controller, Get, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get, Redirect, Req, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { GoogleAuthGuard } from './utils/google-auth.guard';
 import { UserService } from 'src/user/user.service';
@@ -12,16 +12,12 @@ export class AuthController {
 
     // Displays the Google OAuth page
     @Get('google/login')
-    googleAuth(){
-        return 'Google auth'
-    }
+    googleAuth(){}
 
     // User is redirected to this endpoint after consenting
     @Get('google/redirect')
+    @Redirect('exp://192.168.1.6:8081')
     async googleRedirect(@Req() req){
         return this.authService.loginOrRegister(req?.user)
-
-        console.log('Object received on callback URL', req?.user);
-        return 'You will be redirected to this page'
     }
 }
