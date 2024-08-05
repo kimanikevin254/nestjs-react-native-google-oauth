@@ -1,6 +1,6 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useFonts } from 'expo-font';
-import { Slot, Stack } from 'expo-router';
+import { Slot, Stack, useSegments } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
@@ -14,6 +14,9 @@ export default function RootLayout() {
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
   });
+
+  const segments = useSegments()
+  console.log(segments);
 
   useEffect(() => {
     if (loaded) {
@@ -32,7 +35,7 @@ function RootLayoutNav() {
 
   return (
     <SafeAreaProvider>
-      <Slot initialRouteName='/(tabs)' />
+      <Slot initialRouteName='/(app)' />
     </SafeAreaProvider>
   );
 }
